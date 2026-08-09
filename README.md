@@ -2,13 +2,13 @@
 
 A **Time Series Forecasting project** that predicts future household electricity consumption using historical energy usage data.
 
-The project analyzes more than **2 million minute-level records** and compares statistical models such as **ARIMA and SARIMA** with Deep Learning models including **RNN, LSTM, and Bi-LSTM**.
+The project analyzes over **2 million minute-level records** and compares traditional statistical models (**ARIMA, SARIMA**) with Deep Learning models (**RNN, LSTM, Bi-LSTM**).
 
 ---
 
 ## 📌 Project Overview
 
-The goal is to forecast **Global Active Power** using historical electricity consumption data.
+The main objective is to forecast **Global Active Power** for efficient energy management and demand planning.
 
 | Category                 | Details                                         |
 | ------------------------ | ----------------------------------------------- |
@@ -22,16 +22,14 @@ The goal is to forecast **Global Active Power** using historical electricity con
 
 ---
 
-## 📊 Dataset
+## 📂 Dataset
 
 The project uses the **Individual Household Electric Power Consumption** dataset from the UCI Machine Learning Repository.
 
 **Dataset:** [Individual Household Electric Power Consumption – UCI](https://archive.ics.uci.edu/ml/datasets/individual+household+electric+power+consumption)
 
-### Dataset Details
-
 * **Input File:** `ElectricityC.zip`
-* **Size:** Approximately 2 million records
+* **Size:** Approximately 2 million rows
 * **Resolution:** Minute-level
 
 ### Key Features
@@ -43,24 +41,24 @@ The project uses the **Individual Household Electric Power Consumption** dataset
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-* **Python**
-* **Pandas, NumPy** – Data processing
-* **Matplotlib, Seaborn** – Visualization
+* **Python 3.x**
+* **Pandas, NumPy** – Data manipulation
+* **Matplotlib, Seaborn** – Data visualization
 * **Statsmodels** – ARIMA, SARIMA, ADF Test, Seasonal Decomposition
 * **TensorFlow, Keras** – RNN, LSTM, Bi-LSTM
-* **Scikit-Learn** – Model evaluation
+* **Scikit-Learn** – Evaluation metrics
 
 ---
 
-## ⚙️ Methodology
+## ⚙️ Project Workflow
 
 ### 1. Data Preprocessing
 
 * Converted `Global_active_power` to numeric format
-* Handled missing and invalid values
-* Removed approximately **1.25% missing observations**
+* Handled special characters such as `?`
+* Identified and removed approximately **1.25% missing data**
 * Resampled the data to reduce noise and computational requirements
 * Used **weekly data** for statistical models
 * Used **hourly data** for Deep Learning models
@@ -72,9 +70,9 @@ The analysis included:
 * Seasonal decomposition
 * Trend and seasonality analysis
 * Augmented Dickey-Fuller (ADF) test
-* ACF and PACF plots
+* ACF and PACF analysis
 
-The analysis identified a clear **yearly seasonal pattern** in electricity consumption.
+A clear **yearly seasonal pattern** was identified in electricity consumption.
 
 ---
 
@@ -82,39 +80,48 @@ The analysis identified a clear **yearly seasonal pattern** in electricity consu
 
 ### Statistical Models
 
-**ARIMA** was used as a baseline forecasting model.
+**ARIMA** was used as the baseline forecasting model.
 
 **SARIMA** was implemented to capture the yearly seasonal pattern.
 
-**Key Finding:** SARIMA performed better than ARIMA by incorporating seasonality.
+**Key Finding:** SARIMA outperformed ARIMA by effectively handling seasonality.
 
 ### Deep Learning Models
 
-The following recurrent neural network models were implemented:
+The project implemented:
 
 * Simple RNN
 * LSTM
 * Bi-LSTM
 
-LSTM was used to capture long-term dependencies, while Bi-LSTM was tested to determine whether bidirectional processing could improve forecasting performance.
+LSTM was used to capture long-term dependencies, while Bi-LSTM was tested for bidirectional sequence processing.
 
 ---
 
-## 📈 Model Comparison
+## 📊 Results & Evaluation
 
-| Category          | Models             |
-| ----------------- | ------------------ |
-| **Statistical**   | ARIMA, SARIMA      |
-| **Deep Learning** | RNN, LSTM, Bi-LSTM |
+The models were evaluated using:
 
-Models were evaluated using **MAPE** and **RMSE**.
+* **MAPE (Mean Absolute Percentage Error)**
+* **RMSE (Root Mean Squared Error)**
 
-| Category          | Best Model  | Observation                                         |
-| ----------------- | ----------- | --------------------------------------------------- |
-| **Statistical**   | **SARIMA**  | Better than ARIMA due to seasonal modeling          |
-| **Deep Learning** | **Bi-LSTM** | Strong performance in capturing non-linear patterns |
+| Model Category    | Best Model  | Key Observation                                        |
+| ----------------- | ----------- | ------------------------------------------------------ |
+| **Statistical**   | **SARIMA**  | Outperformed ARIMA by capturing yearly seasonality     |
+| **Deep Learning** | **Bi-LSTM** | Best overall accuracy and captured non-linear patterns |
 
-Residual analysis was also performed on the final models.
+Residual analysis was also performed on the final models to examine the behavior of prediction errors.
+
+---
+
+## 🔍 Key Findings
+
+* Electricity consumption shows strong seasonal patterns.
+* SARIMA performed better than ARIMA due to its ability to model seasonality.
+* Deep Learning models captured complex temporal patterns.
+* LSTM effectively captured long-term dependencies.
+* Bi-LSTM achieved the best overall accuracy among the tested Deep Learning models.
+* Model performance was compared using MAPE and RMSE.
 
 ---
 
@@ -144,6 +151,7 @@ This project demonstrates practical experience with:
 * Exploratory Data Analysis
 * Stationarity Testing
 * Seasonal Decomposition
+* ACF and PACF Analysis
 * ARIMA and SARIMA
 * Recurrent Neural Networks
 * LSTM and Bi-LSTM
@@ -177,17 +185,26 @@ Electricity Consumption Dataset
             ↓
    Stationarity & Seasonality
             ↓
-    ┌───────────────┐
-    │               │
-    ↓               ↓
+      ┌───────────────┐
+      │               │
+      ↓               ↓
  ARIMA/SARIMA    RNN/LSTM/Bi-LSTM
-    │               │
-    └───────┬───────┘
-            ↓
-      Model Evaluation
-            ↓
-        MAPE + RMSE
-            ↓
-      Model Comparison
+      │               │
+      └───────┬───────┘
+              ↓
+       Model Evaluation
+              ↓
+         MAPE + RMSE
+              ↓
+       Model Comparison
 ```
 
+---
+
+## ⭐ Conclusion
+
+This project demonstrates the application of **Time Series Forecasting and Deep Learning** to household electricity consumption.
+
+By comparing **ARIMA, SARIMA, RNN, LSTM, and Bi-LSTM**, the project evaluates both traditional statistical and modern Deep Learning approaches for forecasting energy consumption.
+
+The results highlight the importance of **seasonality in statistical forecasting** and the ability of recurrent neural networks to capture complex temporal patterns.
