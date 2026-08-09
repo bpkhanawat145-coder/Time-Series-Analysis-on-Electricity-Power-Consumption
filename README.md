@@ -17,6 +17,9 @@ The main objective is to forecast **Global Active Power** and determine which mo
 * **Input File:** `ElectricityC.zip`
 * **Records:** Approximately 2 million minute-level observations
 * **Time Resolution:** 1 minute
+* 🔗 Dataset Link:
+https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption
+
 
 ### Important Features
 
